@@ -30,6 +30,8 @@ function getImg(data){
 }
 
 var iLoad = {
+	onLoadingComplete: function(){},
+
 	loadImages: function(){
 		var cLoadImgs = document.querySelectorAll("[iLoad]");
 		
@@ -40,6 +42,7 @@ var iLoad = {
 				var el = cLoadImgs[i];
 				if(el==undefined){
 					clearInterval(interv);
+					iLoad.onLoadingComplete();
 					return;
 				}
 				var imgSrc = el.getAttribute("iSrc");
@@ -51,6 +54,8 @@ var iLoad = {
 			
 			if(i==cLoadImgs.length){
 				clearInterval(interv);
+				iLoad.onLoadingComplete();
+				return;
 			}
 		}, 50);
 	}

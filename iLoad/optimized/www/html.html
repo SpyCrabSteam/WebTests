@@ -5,6 +5,12 @@
 	<body onload="iLoad.loadImages();">
 		<h1>You can still view the full page</h1>
 		
+		<div class="spinner" id="loading">
+			<div class="bounce1"></div>
+			<div class="bounce2"></div>
+			<div class="bounce3"></div>
+		</div>
+
 		<img iLoad iSrc="forest" id="forest" src="sforest.jpg" alt="Forest">
 		<img iLoad iSrc="bridge" id="bridge" src="sbridge.jpg" alt="Bridge">
 		<img iLoad iSrc="murica" id="murica" src="smurica.jpg" alt="Murica">
@@ -19,8 +25,59 @@
 				background-image: url("smclaren.jpg");
 				background-size: contain;
 			}
+
+			.spinner {
+				margin: 100px auto 0;
+				width: 70px;
+				text-align: center;
+				margin-bottom: 1%;
+			}
+
+			.spinner > div {
+				width: 18px;
+				height: 18px;
+				background-color: #333;
+
+				border-radius: 100%;
+				display: inline-block;
+				-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+				animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+			}
+
+			.spinner .bounce1 {
+				-webkit-animation-delay: -0.32s;
+				animation-delay: -0.32s;
+			}
+
+			.spinner .bounce2 {
+				-webkit-animation-delay: -0.16s;
+				animation-delay: -0.16s;
+			}
+
+			@-webkit-keyframes sk-bouncedelay {
+				0%, 80%, 100% { -webkit-transform: scale(0) }
+				40% { -webkit-transform: scale(1.0) }
+			}
+
+			@keyframes sk-bouncedelay {
+				0%, 80%, 100% { 
+					-webkit-transform: scale(0);
+					transform: scale(0);
+				} 40% { 
+					-webkit-transform: scale(1.0);
+					transform: scale(1.0);
+				}
+			}
 		</style>
-		
+
+		<script>
+			iLoad.onLoadingComplete = function(){
+				var spinner = document.getElementById("loading");
+				spinner.style.display = "none";
+				console.log("Loading finished");
+			};
+		</script>
+
 		<h2>While the images are loading</h2>
 	</body>
 </html>
