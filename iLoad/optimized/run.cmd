@@ -1,2 +1,0 @@
-node host.js
-pause

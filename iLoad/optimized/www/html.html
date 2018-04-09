@@ -1,14 +1,25 @@
 <html>
 	<head>
-		<script type="text/javascript" src="js/cLoad.js"></script>
+		<script type="text/javascript" src="js/iLoad.js"></script>
 	</head>
-	<body onload="cLoad.loadImages();">
+	<body onload="iLoad.loadImages();">
 		<h1>You can still view the full page</h1>
 		
-		<img cLoad cSrc="forest" id="forest" src="sforest.jpg" alt="Forest">
-		<img cLoad cSrc="bridge" id="bridge" src="sbridge.jpg" alt="Bridge">
-		<img cLoad cSrc="murica" id="murica" src="smurica.jpg" alt="Murica">
-		<img cLoad cSrc="beach" id="beach" src="sbeach.jpg" alt="Beach">
+		<img iLoad iSrc="forest" id="forest" src="sforest.jpg" alt="Forest">
+		<img iLoad iSrc="bridge" id="bridge" src="sbridge.jpg" alt="Bridge">
+		<img iLoad iSrc="murica" id="murica" src="smurica.jpg" alt="Murica">
+		<img iLoad iSrc="beach" id="beach" src="sbeach.jpg" alt="Beach">
+		<div iLoad iSrc="mclaren" id="mclaren" alt="Mclaren">
+			<img src="smclaren.jpg" style="visibility: hidden;"></img>
+		</div>
+		
+		<style>
+			#mclaren{
+				background-repeat: no-repeat;
+				background-image: url("smclaren.jpg");
+				background-size: contain;
+			}
+		</style>
 		
 		<h2>While the images are loading</h2>
 	</body>
